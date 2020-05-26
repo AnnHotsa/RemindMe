@@ -2,5 +2,6 @@
   "HOME": "/",
   "COUNTER": "/counter",
   "REMINDER": "/reminder",
-  "REMINDERS_LIST": "/reminders_list"
+  "REMINDERS_LIST": "/reminders_list",
+  "DOCUMENTS_LIST": "/documents_list"
 }

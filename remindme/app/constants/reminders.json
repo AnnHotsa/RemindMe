@@ -8,7 +8,7 @@
       "D:/Anna/Documents/data.docx"
     ],
     "isRegular": true,
-    "repeatOn": "everyday",
+    "repeatOn": "monthly",
     "startDate": 1590532686663,
     "endDate": 1593211051655
   },
@@ -21,7 +21,7 @@
       "D:/Anna/Documents/data.docx"
     ],
     "isRegular": true,
-    "repeatOn": "everyday",
+    "repeatOn": "weekly",
     "startDate": 1590532686663,
     "endDate": 1593211051655
   },
@@ -31,6 +31,6 @@
     "description": "Review your subordinates report file",
     "attachments": ["D:/Anna/Downloads/reports"],
     "isRegular": false,
-    "dare": 1593211051655
+    "date": 1593211051655
   }
 ]

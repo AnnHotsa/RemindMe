@@ -3,6 +3,7 @@
   top: 30%;
   left: 10px;
   text-align: center;
+  overflow: auto;
 }
 
 .container h2 {
