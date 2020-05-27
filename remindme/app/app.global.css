@@ -45,3 +45,78 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+h3 {
+  margin: 10px;
+}
+
+.reminders-list {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.reminders-list .left-container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.reminders-list .right-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.reminders-list .left-container .controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reminders-list .left-container .controls .reminders-search {
+  width: 70%;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.reminders-list .left-container .controls .reminders-filter {
+  padding: 10px 20px;
+  outline: none;
+  border-radius: 8px;
+  border: none;
+  background: white;
+  opacity: 0.75;
+  font-weight: bold;
+  color: #0e4ca7;
+}
+
+.reminders-list .left-container .controls .reminders-filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.reminders-list .left-container .reminders {
+  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.reminders-list .left-container .reminders .reminder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff85;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  color: #0e4ca7;
+}
+
+.reminders-list .left-container .reminders .reminder:hover {
+  cursor: pointer;
+  background-color: white;
+}

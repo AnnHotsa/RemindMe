@@ -9,27 +9,26 @@ import {
 
 export default function Reminder() {
   return (
-    <div>
-      Reminders List Page
-      <div className="reminders-list">
-        {/* <Link to={routes.HOME}>
+    <div className="reminders-list">
+      {/* <Link to={routes.HOME}>
           <i className="fa fa-arrow-left fa-3x" />
         </Link> */}
-        <div className="left-container">
-          <div className="controls">
-            <input
-              type="text"
-              className="reminders-search"
-              placeholder="Search..."
-            />
-            <button type="button">Filter By</button>
-          </div>
-          <div className="reminders">{mapRemindersToComponent()}</div>
+      <div className="left-container">
+        <div className="controls">
+          <input
+            type="text"
+            className="reminders-search"
+            placeholder="Search..."
+          />
+          <button type="button" className="reminders-filter">
+            Filter By
+          </button>
         </div>
-        <div className="right-container">
-          <h3>Categories</h3>
-          {mapCategoriesToComponent()}
-        </div>
+        <div className="reminders">{mapRemindersToComponent()}</div>
+      </div>
+      <div className="right-container">
+        <h3>Categories</h3>
+        {mapCategoriesToComponent()}
       </div>
     </div>
   );

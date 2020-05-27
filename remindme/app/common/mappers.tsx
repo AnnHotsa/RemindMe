@@ -22,15 +22,20 @@ export function mapRemindersToComponent() {
   return reminders.map((reminder: Reminder) => {
     return (
       <div key={reminder.id} className="reminder">
-        <h1>
-          Title:
-          {reminder.title}
-        </h1>
-        <p>
-          Description:
-          {reminder.description}
-        </p>
-        <hr />
+        <div className="reminder-info">
+          <h3>
+            Title:
+            {reminder.title}
+          </h3>
+          {/* <p>
+                Description:
+                {reminder.description}
+            </p> */}
+        </div>
+        <div className="reminder-actions">
+          <button type="button">Edit</button>
+          <button type="button">Delete</button>
+        </div>
       </div>
     );
   });
