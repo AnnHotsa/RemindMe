@@ -42,12 +42,12 @@ export default function Reminder() {
             <textarea
               id="desc"
               placeholder="Open Chrome and..."
-              value="Fill the data about your monthly process invoice"
+              value="Fill the invoice file and send it to finance department to get your salary"
             />
           </label>
           <label htmlFor="date">
             Date
-            <input id="date" type="date" value={new Date().toDateString()} />
+            <input id="date" type="date" value="2020-06-21" />
           </label>
           <label htmlFor="repeat">
             Repeat:

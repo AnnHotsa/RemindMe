@@ -46,7 +46,7 @@ export function mapRemindersToComponent() {
           </h3>
         </div>
         <div className="reminder-actions">
-          <button type="button">Edit</button>
+          {/* <button type="button">Edit</button> */}
           <button type="button">Delete</button>
         </div>
       </div>
