@@ -23,14 +23,12 @@ export function mapRemindersToComponent() {
     return (
       <div key={reminder.id} className="reminder">
         <div className="reminder-info">
+          <h3>{reminder.title}</h3>
           <h3>
-            Title:
-            {reminder.title}
+            {reminder.isRegular
+              ? 'Regular'
+              : new Date(reminder.date || '').toDateString()}
           </h3>
-          {/* <p>
-                Description:
-                {reminder.description}
-            </p> */}
         </div>
         <div className="reminder-actions">
           <button type="button">Edit</button>
@@ -54,11 +52,7 @@ export function mapCategoriesToComponent() {
   return categories.map((category: Category) => {
     return (
       <div key={category.id} className="category">
-        <h1>
-          Title:
-          {category.title}
-        </h1>
-        <hr />
+        <button type="button">{category.title}</button>
       </div>
     );
   });

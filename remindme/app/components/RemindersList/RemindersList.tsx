@@ -27,8 +27,16 @@ export default function Reminder() {
         <div className="reminders">{mapRemindersToComponent()}</div>
       </div>
       <div className="right-container">
-        <h3>Categories</h3>
-        {mapCategoriesToComponent()}
+        <div className="categories">
+          <h3>Categories</h3>
+          {mapCategoriesToComponent()}
+        </div>
+        <div className="occurence">
+          <h3>When</h3>
+          <button type="button">Today</button>
+          <button type="button">Tomorrow</button>
+          <button type="button">Upcoming</button>
+        </div>
       </div>
     </div>
   );
