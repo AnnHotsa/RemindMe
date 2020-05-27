@@ -156,9 +156,13 @@ button:hover {
   color: #0e4ca7;
 }
 
+.reminders-list .left-container .reminders .reminder .reminder-info h3 {
+  text-align: left;
+}
+
 .reminders-list .left-container .reminders .reminder:hover {
   cursor: pointer;
-  background-color: white;
+  background-color: rgba(99, 229, 255, 0.5);
 }
 
 .reminders-list .right-container .category button {

@@ -26,7 +26,7 @@ export function mapRemindersToComponent() {
           <h3>{reminder.title}</h3>
           <h3>
             {reminder.isRegular
-              ? 'Regular'
+              ? `Repeated ${reminder.repeatOn}`
               : new Date(reminder.date || '').toDateString()}
           </h3>
         </div>
