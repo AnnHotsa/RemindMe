@@ -9,7 +9,7 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Notification } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -85,6 +85,13 @@ const createWindow = async () => {
       mainWindow.focus();
     }
     mainWindow.webContents.closeDevTools();
+
+    const myNotification = new Notification({
+      title: 'RemindMe',
+      body: 'Hello! Do not forget to Send invoice today :)'
+    });
+
+    myNotification.show();
   });
 
   mainWindow.on('closed', () => {
