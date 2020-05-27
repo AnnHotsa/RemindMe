@@ -7,12 +7,14 @@ import CounterPage from './containers/CounterPage';
 import ReminderPage from './containers/ReminderPage';
 import RemindersListPage from './containers/RemindersListPage';
 import DocumentsListPage from './containers/DocumentsListPage';
+import NewReminderPage from './containers/NewReminderPage';
 
 export default function Routes() {
   return (
     <App>
       <Switch>
         <Route path={routes.COUNTER} component={CounterPage} />
+        <Route path={routes.NEW_REMINDER} component={NewReminderPage} />
         <Route path={routes.REMINDER} component={ReminderPage} />
         <Route path={routes.REMINDERS_LIST} component={RemindersListPage} />
         <Route path={routes.DOCUMENTS_LIST} component={DocumentsListPage} />

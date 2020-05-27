@@ -1,6 +1,6 @@
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import RemindersList from '../components/RemindersList/RemindersList';
+import NewReminder from '../components/NewReminder/NewReminder';
 
 function mapStateToProps() {
   return {};
@@ -10,4 +10,4 @@ function mapDispatchToProps(dispatch: Dispatch) {
   return bindActionCreators({}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RemindersList);
+export default connect(mapStateToProps, mapDispatchToProps)(NewReminder);

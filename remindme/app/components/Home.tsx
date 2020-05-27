@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={styles.container} data-tid="container">
       {/* <h3>RemindMe</h3> */}
-      <Link to={routes.REMINDER} className="new-reminder">
+      <Link to={routes.NEW_REMINDER} className="new-reminder">
         + New Reminder
       </Link>
       {/* <Link to={routes.COUNTER}>Add Reminder</Link> */}

@@ -1,27 +1,42 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import * as reminders from '../constants/reminders.json';
 import * as categories from '../constants/categories.json';
 
-interface Reminder {
-  id: string;
-  title: string;
-  description: string;
-  attachments: string[];
-  isRegular: boolean;
-  date?: number;
-  repeatOn?: string;
-  startDate?: number;
-  endDate?: number;
-}
+// interface Reminder {
+//   id: string;
+//   title: string;
+//   description: string;
+//   attachments: string[];
+//   isRegular: boolean;
+//   date?: number;
+//   repeatOn?: string;
+//   startDate?: number;
+//   endDate?: number;
+// }
 
 export function mapRemindersToComponent() {
   if (!reminders) {
     return null;
   }
+  const history = useHistory();
 
-  return reminders.map((reminder: Reminder) => {
+  const editReminder = () => {
+    history.push('/reminder');
+  };
+
+  const handleClick = () => {};
+
+  return reminders.map(reminder => {
     return (
-      <div key={reminder.id} className="reminder">
+      <div
+        role="link"
+        key={reminder.id}
+        className="reminder"
+        onClick={editReminder}
+        onKeyDown={handleClick}
+        tabIndex={0}
+      >
         <div className="reminder-info">
           <h3>{reminder.title}</h3>
           <h3>
