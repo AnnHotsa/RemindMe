@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RemindMe</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (() => {
+      if (
+        typeof process !== 'object' ||
+        (typeof process === 'object' && !process.env.START_HOT)
+      ) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '../dist/style.css';
+        // HACK: Writing the script path should be done with webpack
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
+    })();
+  </script>
+  <style>
+
+    .tray-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+        
+    /* tray styles */
+    .tray-container .tray-title {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .tray-container .tray-desc {
+      margin: 5px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .tray-container .reminders-list {
+      width: 100%;
+      justify-content: space-evenly;
+    }
+
+    .tray-container .reminders-list .left-container {
+      width: 100%;
+    }
+
+    .tray-container .reminders-list .left-container .reminders {
+      margin-top: 0
+    }
+
+    .tray-container .button {
+      width: 110px;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="tray-window" class="tray-container">
+    <h3 class="tray-title">Welcome to RemindMe!</h3>
+    <p class=tray-desc>
+      I'm your personal guide to self-organization!
+      Let's check what are the next 5 tasks for you :)
+    </p>
+    <div class="reminders-list">
+      <div class="left-container">
+        <div class="reminders">
+
+          <div role="link" class="reminder">
+            <div class="reminder-title">
+              <label class="reminder-checkbox-container">
+                <input type="checkbox" class="reminder-checkbox" checked="true" name="title" />
+                <span class="checkmark"></span>
+                <span class="title-label">Review Report</span>
+              </label>
+            </div>
+          </div>
+
+          <div role="link" class="reminder">
+            <div class="reminder-title">
+              <label class="reminder-checkbox-container">
+                <input type="checkbox" class="reminder-checkbox" name="title" />
+                <span class="checkmark"></span>
+                <span class="title-label">Mother's B-day</span>
+              </label>
+            </div>
+          </div>
+          
+          <div role="link" class="reminder">
+            <div class="reminder-title">
+              <label class="reminder-checkbox-container">
+                <input type="checkbox" class="reminder-checkbox" name="title" />
+                <span class="checkmark"></span>
+                <span class="title-label">Schedule sync up with Manager</span>
+              </label>
+            </div>
+          </div>
+          
+          <div role="link" class="reminder">
+            <div class="reminder-title">
+              <label class="reminder-checkbox-container">
+                <input type="checkbox" class="reminder-checkbox" name="title" />
+                <span class="checkmark"></span>
+                <span class="title-label">Send Invoice</span>
+              </label>
+            </div>
+          </div>
+          
+          <div role="link" class="reminder">
+            <div class="reminder-title">
+              <label class="reminder-checkbox-container">
+                <input type="checkbox" class="reminder-checkbox" name="title" />
+                <span class="checkmark"></span>
+                <span class="title-label">Process Invoice</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="button">Open app</button>
+  </div>
+  <!-- <script type="module" src="./index.tsx">   </script> -->
+  <script>
+    if (typeof process === 'object') {
+      const scripts = [];
+
+      if (process.env.NODE_ENV === 'development') {
+        // Dynamically insert the DLL script in development env in the
+        // renderer process
+        scripts.push('../../dll/renderer.dev.dll.js');
+      }
+      if (process.env.START_HOT) {
+        // Dynamically insert the bundled app script in the renderer process
+        const port = process.env.PORT || 1212;
+        scripts.push(`http://localhost:${port}/../dist/renderer.dev.js`);
+      } else {
+        scripts.push('../dist/renderer.prod.js');
+      }
+
+      if (scripts.length) {
+        document.write(
+          scripts
+            .map(script => `<script defer src="${script}"><\/script>`)
+            .join('')
+        );
+      }
+    }
+  </script>
+</body>
+
+</html>

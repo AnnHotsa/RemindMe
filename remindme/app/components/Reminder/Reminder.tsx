@@ -5,6 +5,8 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
+import { reminderToEdit } from "../../constants/global";
+
 export default function Reminder() {
   const history = useHistory();
 
@@ -15,6 +17,12 @@ export default function Reminder() {
   const goToAttachmenets = () => {
     history.push('/documents_list');
   };
+
+  console.log("reminder to edit => ", reminderToEdit);
+
+  let reminder = {...reminderToEdit} as any;
+
+  let date = reminder.date ? new Date(reminder.date).toISOString().substring(0,10) : "2020-06-21";
 
   return (
     <div>
@@ -34,7 +42,7 @@ export default function Reminder() {
               id="title"
               type="text"
               placeholder="Send email"
-              value="Process Invoice"
+              value={reminder.title}
             />
           </label>
           <label htmlFor="desc">
@@ -42,16 +50,16 @@ export default function Reminder() {
             <textarea
               id="desc"
               placeholder="Open Chrome and..."
-              value="Fill the invoice file and send it to finance department to get your salary"
+              value={reminder.description}
             />
           </label>
           <label htmlFor="date">
             Date
-            <input id="date" type="date" value="2020-06-21" />
+            <input id="date" type="date" value={date} />
           </label>
           <label htmlFor="repeat">
             Repeat:
-            <select id="repeat" value="Every Month">
+            <select id="repeat" value={reminder.repeatOn}>
               <option>Never</option>
               <option>Every Day</option>
               <option>Every Week</option>
@@ -62,7 +70,7 @@ export default function Reminder() {
 
           <label htmlFor="category">
             Category
-            <select id="category" value="Work">
+            <select id="category" value={reminder.category}>
               <option>Work</option>
               <option>Personal</option>
               <option>Others</option>

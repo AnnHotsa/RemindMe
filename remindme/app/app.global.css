@@ -248,3 +248,109 @@ button:hover,
   overflow-y: auto;
   max-height: 300px;
 }
+
+
+.reminders-list .left-container .reminders .reminder {
+  outline: none;
+}
+
+.reminders-list .left-container .reminders .reminder .reminder-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 3px 10px;
+}
+
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container .title-label {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container .title-label.done {
+  text-decoration: line-through;
+}
+
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-info .desc-label {
+  margin: 5px 0;
+}
+
+
+/* The container */
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container  {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container  input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+/* On mouse-over, add a grey background color */
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container :hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container  input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container  .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container  input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.reminders-list .left-container .reminders .reminder .reminder-title .reminder-checkbox-container  .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

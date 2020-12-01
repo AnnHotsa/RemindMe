@@ -9,7 +9,7 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, Notification } from 'electron';
+import { app, BrowserWindow, Notification, Menu, Tray } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -23,6 +23,8 @@ export default class AppUpdater {
 }
 
 let mainWindow: BrowserWindow | null = null;
+let trayWindow: BrowserWindow | null = null;
+let isQuiting: boolean;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -45,6 +47,12 @@ const installExtensions = async () => {
     extensions.map(name => installer.default(installer[name], forceDownload))
   ).catch(console.log);
 };
+
+
+app.on('before-quit', function () {
+  isQuiting = true;
+});
+
 
 const createWindow = async () => {
   if (
@@ -86,17 +94,28 @@ const createWindow = async () => {
     }
     mainWindow.webContents.closeDevTools();
 
-    const myNotification = new Notification({
-      title: 'RemindMe',
-      body: 'Hello! Do not forget to Send invoice today :)'
-    });
+    // const myNotification = new Notification({
+    //   title: 'RemindMe',
+    //   body: 'Hello! Do not forget to Send invoice today :)'
+    // });
 
-    myNotification.show();
+    // myNotification.show();
   });
 
-  mainWindow.on('closed', () => {
-    mainWindow = null;
+  // mainWindow.on('closed', () => {
+  //   mainWindow = null;
+  // });
+
+  
+  mainWindow.on('close', function (event: any) {
+    console.log("is quiting ===> ", isQuiting);
+    if (!isQuiting) {
+      event.preventDefault();
+      (mainWindow as BrowserWindow).hide();
+      event.returnValue = false;
+    }
   });
+
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
@@ -110,18 +129,100 @@ const createWindow = async () => {
  * Add event listeners...
  */
 
-app.on('window-all-closed', () => {
-  // Respect the OSX convention of having the application in memory even
-  // after all windows have been closed
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
+// app.on('window-all-closed', () => {
+//   // Respect the OSX convention of having the application in memory even
+//   // after all windows have been closed
+//   if (process.platform !== 'darwin') {
+//     app.quit();
+//   }
+// });
 
-app.on('ready', createWindow);
+// app.on('ready', createWindow);
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
+});
+
+
+let tray = null;
+
+const createTrayWindow = async () => {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    process.env.DEBUG_PROD === 'true'
+  ) {
+    await installExtensions();
+  }
+
+  trayWindow = new BrowserWindow({
+    show: false,
+    width: 300,
+    height: 420,
+    minWidth: 300,
+    minHeight: 420,
+    frame: false,
+    movable: false,
+    x: 1050,
+    y: 400
+  });
+
+  trayWindow.loadURL(`file://${__dirname}/../app/tray/tray.html`);
+
+  // @TODO: Use 'ready-to-show' event
+  //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
+  trayWindow.webContents.on('did-finish-load', () => {
+    if (!trayWindow) {
+      throw new Error('"trayWindow" is not defined');
+    }
+    if (process.env.START_MINIMIZED) {
+      trayWindow.minimize();
+    } else {
+      trayWindow.show();
+      trayWindow.focus();
+    }
+    trayWindow.webContents.closeDevTools();
+
+  });
+
+  trayWindow.on('closed', () => {
+    trayWindow = null;
+  });
+};
+
+
+app.on('ready', () => {
+
+  createWindow();
+
+  tray = new Tray(path.join(__dirname, '../resources/icon.png'));
+  console.log("create Tray ==>", tray);
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Open app', click: () => {
+        if (mainWindow) mainWindow.show()
+      } 
+    },
+    {
+      label: 'Quit', click: function () {
+        isQuiting = true;
+        app.quit();
+      }
+    }
+  ])
+  tray.setToolTip('RemindeMe');
+  tray.setContextMenu(contextMenu);
+
+  tray.on('click', () => {
+    if (trayWindow) {
+      trayWindow.isVisible() ? trayWindow.hide() : trayWindow.show();
+    } else { 
+      createTrayWindow();
+    }
+  });
+
+  tray.on('double-click', () => {
+    if (mainWindow) mainWindow.show()
+  });
+
 });

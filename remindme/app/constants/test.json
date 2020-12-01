@@ -7,21 +7,17 @@
             "D:/Anna/Downloads/reports"
         ],
         "isRegular": false,
-        "date": 1592983212222,
-        "category": "work",
-        "done": true
+        "date": 1592983212222
     },
     {
         "id": "1d088cb6-bbfd-4df0-a1dd-76a8c16081ba",
         "title": "Mother's B-day",
-        "description": "Organize a party",
+        "description": "Review your subordinates report file",
         "attachments": [
             "D:/Anna/Downloads/reports"
         ],
         "isRegular": false,
-        "date": 1593989218222,
-        "category": "personal",
-        "done": false
+        "date": 1593989218222
     },
     {
         "id": "416dc680-6742-4bcf-bae1-321fb06ebb2a",
@@ -31,18 +27,14 @@
             "D:/Anna/Downloads/reports"
         ],
         "isRegular": false,
-        "date": 1596989218222,
-        "category": "work",
-        "done": true
+        "date": 1596989218222
     },
     {
         "id": "fe8565cd-7621-488c-9e0e-b93ee480694d",
         "title": "Send Invoice",
         "description": "Review your subordinates report file",
         "isRegular": false,
-        "date": 1598989218222,
-        "category": "work",
-        "done": false
+        "date": 1598989218222
     },
     {
         "id": "f00897f7-2658-4091-a4f8-8bd885f29039",
@@ -55,9 +47,7 @@
         "isRegular": true,
         "repeatOn": "monthly",
         "startDate": 1590532686663,
-        "endDate": 1593211051655,
-        "category": "work",
-        "done": false
+        "endDate": 1593211051655
     },
     {
         "id": "219s19es0d12",
@@ -70,33 +60,46 @@
         "isRegular": true,
         "repeatOn": "weekly",
         "startDate": 1590532686663,
-        "endDate": 1593211051655,
-        "category": "work",
-        "done": false
+        "endDate": 1593211051655
     },
     {
-        "id": "f6f5c07b-10ce-4024-9350-31ee4e3d9072",
-        "title": "Feed the cat",
-        "description": "Go to the kitchen and give your cat food",
-        "attachments": [],
-        "isRegular": true,
-        "repeatOn": "daily",
-        "startDate": 1590796800000,
-        "endDate": 4743954000000,
-        "category": "personal",
-        "done": true
+        "id": "239sd9es0d12",
+        "title": "Review Report",
+        "description": "Review your subordinates report file",
+        "attachments": [
+            "D:/Anna/Downloads/reports"
+        ],
+        "isRegular": false,
+        "date": 1593211051655
     },
     {
-        "id": "ed5ac8fe-8ce2-4d90-83ec-52d6d4a413a8",
-        "title": "Send report",
-        "description": "Fill the report document with data gathered for last working month. Use the attachments and then send it to your manager - manager@company.com",
+        "id": "139sd9es0d12",
+        "title": "Review Report",
+        "description": "Review your subordinates report file",
+        "attachments": [
+            "D:/Anna/Downloads/reports"
+        ],
+        "isRegular": false,
+        "date": 1593211051655
+    },
+    {
+        "id": "339sd9es0d12",
+        "title": "Review Report",
+        "description": "Review your subordinates report file",
+        "attachments": [
+            "D:/Anna/Downloads/reports"
+        ],
+        "isRegular": false,
+        "date": 1593211051655
+    },
+    {
+        "id": "e1091f30-59b8-4f48-bf85-361524365565",
+        "title": "eferf",
+        "description": "erferf",
         "attachments": [],
         "isRegular": true,
-        "repeatOn": "monthly",
-        "startDate": 1593043200000,
-        "endDate": 4743954000000,
-        "date": "",
-        "category": "work",
-        "done": false
+        "repeatOn": "yearly",
+        "startDate": 1588896000000,
+        "endDate": 4743954000000
     }
 ]
