@@ -70,7 +70,7 @@ export default function DocumentsList() {
             View in folder
           </button>
           <button type="button" onClick={attachFiles}>
-            Attach Files
+            Attach files
           </button>
         </div>
       </div>

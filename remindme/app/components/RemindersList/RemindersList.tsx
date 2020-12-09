@@ -85,7 +85,7 @@ export class RemindersList extends React.Component<any, any> {
               placeholder="Search..."
             />
             <button type="button" className="reminders-filter">
-              Filter By
+              Filter by
             </button>
           </div>
           <div className="reminders">{this.mapRemindersToComponent()}</div>

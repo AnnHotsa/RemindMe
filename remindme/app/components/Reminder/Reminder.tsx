@@ -33,7 +33,7 @@ export default function Reminder() {
       </div>
       <Link to={routes.DOCUMENTS_LIST}>Documents List</Link> */}
       <div className="new-reminder">
-        <h3>Update your Reminder and save changes</h3>
+        <h3>Update your reminder and save changes</h3>
 
         <form className="new-reminder-form">
           <label htmlFor="title">
