@@ -163,7 +163,7 @@ export class RemindersList extends React.Component<any, any> {
         <div
           role="link"
           key={reminder.id}
-          className="reminder"
+          className={"reminder" + (reminder.done ? " done" : "")}
           // onClick={editReminder}
           onKeyDown={handleClick}
           tabIndex={0}

@@ -1,7 +1,7 @@
 [
     {
         "id": "24abf8cd-69db-47e4-b130-c82093607bff",
-        "title": "Review Report",
+        "title": "Review report",
         "description": "Review your subordinates report file",
         "attachments": [
             "D:/Anna/Downloads/reports"
@@ -25,7 +25,7 @@
     },
     {
         "id": "416dc680-6742-4bcf-bae1-321fb06ebb2a",
-        "title": "Schedule sync up with Manager",
+        "title": "Schedule 1:1",
         "description": "Review your subordinates report file",
         "attachments": [
             "D:/Anna/Downloads/reports"
@@ -37,7 +37,7 @@
     },
     {
         "id": "fe8565cd-7621-488c-9e0e-b93ee480694d",
-        "title": "Send Invoice",
+        "title": "Send invoice",
         "description": "Review your subordinates report file",
         "isRegular": false,
         "date": 1598989218222,
@@ -46,7 +46,7 @@
     },
     {
         "id": "f00897f7-2658-4091-a4f8-8bd885f29039",
-        "title": "Process Invoice",
+        "title": "Process invoice",
         "description": "Fill the invoice file and send it to finance department to get your salary",
         "attachments": [
             "D:/Anna/Documents/invoice.docx",
@@ -61,7 +61,7 @@
     },
     {
         "id": "219s19es0d12",
-        "title": "Create Report",
+        "title": "Create report",
         "description": "File the report file and send it to manager",
         "attachments": [
             "D:/Anna/Documents/report.docx",
