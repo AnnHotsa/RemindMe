@@ -147,6 +147,14 @@ export class RemindersList extends React.Component<any, any> {
       }
     };
 
+    const viewReminder = (e: any) => {
+      history.push('/view_reminder');
+
+      if (e.target.dataset.id) {
+        selectReminderToEdit(this.state.reminders.filter((r: any) => r.id === e.target.dataset.id)[0]);
+      }
+    };
+
     const deleteReminder = (e: any) => {
       if (e && e.target && e.target.dataset.id) {
         deleteSelectedReminder(e.target.dataset.id);
@@ -215,6 +223,7 @@ export class RemindersList extends React.Component<any, any> {
           </div>
 
           <div className="reminder-actions">
+            <button type="button" data-id={reminder.id} onClick={viewReminder}>View</button>
             <button type="button" data-id={reminder.id} onClick={editReminder}>Edit</button>
             <button type="button" data-id={reminder.id} onClick={deleteReminder}>Delete</button>
           </div>

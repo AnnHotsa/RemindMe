@@ -21,7 +21,7 @@ export default function DocumentsList() {
 
   const showInFolder = () => {
     remote.shell.openItem(
-      'C:/Users/Anna/AppData/Roaming/RemindMe/reminders/1d088cb6-bbfd-4df0-a1dd-76a8c16081ba/attachments/March Invoice.docx'
+      'C:/Users/Anna/AppData/Roaming/RemindMe/reminders/1d088cb6-bbfd-4df0-a1dd-76a8c16081ba/attachments/December Invoice.docx'
     );
   };
 

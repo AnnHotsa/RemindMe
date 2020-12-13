@@ -3,6 +3,7 @@
   "COUNTER": "/counter",
   "REMINDER": "/reminder",
   "NEW_REMINDER": "/new_reminder",
+  "VIEW_REMINDER": "/view_reminder",
   "REMINDERS_LIST": "/reminders_list",
   "DOCUMENTS_LIST": "/documents_list"
 }
