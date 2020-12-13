@@ -63,14 +63,14 @@ export default function DocumentsList() {
 
       <div className="action-btns">
         <button type="button" onClick={goBackHome} style={{ marginLeft: 0 }}>
-          Back to reminder
+          Back
         </button>
         <div>
-          <button type="button" onClick={openFolder}>
+          <button type="button" style={{ width: "auto" }} onClick={openFolder}>
             View in folder
           </button>
-          <button type="button" onClick={attachFiles}>
-            Attach files
+          <button type="button" style={{ width: "auto" }} onClick={attachFiles}>
+            Attach more
           </button>
         </div>
       </div>

@@ -60,6 +60,7 @@ export class RemindersList extends React.Component<any, any> {
     this.mapRemindersToComponent = this.mapRemindersToComponent.bind(this);
     this.mapCategoriesToComponent = this.mapCategoriesToComponent.bind(this);
     this.filterCategory = this.filterCategory.bind(this);
+    this.searchReminder = this.searchReminder.bind(this);
 
   }
 
@@ -83,6 +84,7 @@ export class RemindersList extends React.Component<any, any> {
               type="text"
               className="reminders-search"
               placeholder="Search..."
+              onChange={this.searchReminder}
             />
             <button type="button" className="reminders-filter">
               Filter by
@@ -107,8 +109,34 @@ export class RemindersList extends React.Component<any, any> {
     );
   }
 
+  searchReminder(e: any) {
+    let searchValue = e.target.value;
+
+    if (!searchValue) { 
+      this.setState({
+        reminders:  [...(remindersList as any)]
+      }); 
+    }
+
+    console.log("remidner to search => ", searchValue);
+
+    let reminders = [...remindersList];
+
+    let result = reminders.filter((r: any) => {
+      return r.title.toUpperCase().startsWith(searchValue.toUpperCase());
+    });
+
+    this.setState({
+      reminders: result
+    });
+  }
 
   mapRemindersToComponent() {
+
+    if (!this.state.reminders.length) {
+      return <p>No reminders available</p>;
+    }
+
     const { history } = this.props;
 
     const editReminder = (e: any) => {
@@ -213,13 +241,16 @@ export class RemindersList extends React.Component<any, any> {
 
     if (e.target.getAttribute('data-category') === "all") {
       this.setState({
-        reminders: [...(remindersList as any).default]
+        reminders: [...(remindersList as any)]
       });
       return;
     }
 
+    let category = e.target.getAttribute('data-category');
+    console.log("catgory ==> ", category);
+
     this.setState({
-      reminders: remindersList.filter((r: any) => r.category === e.target.getAttribute('data-category'))
+      reminders: remindersList.filter((r: any) => r.category === category)
     });
   }
 
