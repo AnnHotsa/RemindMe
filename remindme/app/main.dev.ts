@@ -196,7 +196,7 @@ app.on('ready', () => {
 
   createWindow();
 
-  tray = new Tray(path.join(__dirname, '../resources/icon.png'));
+  tray = new Tray(path.join(__dirname, '../resources/tray.ico'));
   console.log("create Tray ==>", tray);
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Open app', click: () => {
