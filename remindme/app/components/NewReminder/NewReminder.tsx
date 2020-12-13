@@ -6,6 +6,8 @@ import * as path from 'path';
 import * as reminders from '../../constants/reminders.json';
 import { uuidv4 } from '../../common/helpers';
 
+import { remote } from "electron";
+
 export class NewReminder extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -37,7 +39,7 @@ export class NewReminder extends React.Component<any, any> {
             <input
               id="title"
               type="text"
-              placeholder="Send email"
+              placeholder="Add title..."
               value={this.state.title}
               onChange={this.onTitleChange}
             />
@@ -46,7 +48,7 @@ export class NewReminder extends React.Component<any, any> {
             Description
             <textarea
               id="desc"
-              placeholder="Open Chrome and..."
+              placeholder="Add description..."
               value={this.state.description}
               onChange={this.onDescChange}
             />
@@ -91,6 +93,7 @@ export class NewReminder extends React.Component<any, any> {
           <label htmlFor="attach">
             Attachments
             <input
+              onClick={this.onBrowse}
               id="attach"
               type="button"
               style={{ marginRight: 0 }}
@@ -100,10 +103,10 @@ export class NewReminder extends React.Component<any, any> {
         </form>
 
         <div className="action-btns">
-          <button type="button" onClick={this.cancel}>
+          <button type="button" style={{width: "100px"}} onClick={this.cancel}>
             Cancel
           </button>
-          <button type="button" onClick={this.submit}>
+          <button type="button" style={{width: "100px", color: "white", background: "#0e4ca7", padding: "0"}} onClick={this.submit}>
             Create
           </button>
         </div>
@@ -147,6 +150,29 @@ export class NewReminder extends React.Component<any, any> {
 
     setTimeout(() => { this.cancel()}, 2000)
     // this.cancel();
+  }
+
+  onBrowse() {
+    
+    let window = remote.BrowserWindow.getFocusedWindow();
+    remote.dialog.showOpenDialog((window as any), { 
+      title: "Select file",
+      filters: [
+        {
+          name: "All Files",
+          extensions: []
+        },
+        {
+          name: "Text Document",
+          extensions: ["docx", "txt", "doc"]
+        },
+        {
+          name: "Image File",
+          extensions: ["jpeg", "png", "jpg", "svg", "bpm"]
+        }
+      ],
+      properties: ['openFile', 'multiSelections'] 
+    });
   }
 
   onTitleChange(e: any) {

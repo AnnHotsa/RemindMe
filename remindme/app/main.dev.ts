@@ -94,12 +94,12 @@ const createWindow = async () => {
     }
     mainWindow.webContents.closeDevTools();
 
-    // const myNotification = new Notification({
-    //   title: 'RemindMe',
-    //   body: 'Hello! Do not forget to Send invoice today :)'
-    // });
+    const myNotification = new Notification({
+      title: 'RemindMe',
+      body: 'Hello! Do not forget to "send invoice" today :)'
+    });
 
-    // myNotification.show();
+    myNotification.show();
   });
 
   // mainWindow.on('closed', () => {

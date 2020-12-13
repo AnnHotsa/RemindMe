@@ -91,9 +91,9 @@ export default function Reminder() {
 
         <div className="action-btns">
           <button type="button" onClick={goBackHome}>
-            Back to all reminders
+            Back
           </button>
-          <button type="button">Save</button>
+          <button type="button" style={{width: "100px", color: "white", background: "#0e4ca7", padding: "0"}}>Save</button>
         </div>
       </div>
     </div>

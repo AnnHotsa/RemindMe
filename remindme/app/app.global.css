@@ -61,6 +61,12 @@ button,
   font-weight: bold;
   color: #0e4ca7;
   margin: 5px;
+  width: 100px;
+  transition: 0.3s;
+}
+
+input {  
+  transition: 0.3s;
 }
 
 button:hover,
@@ -100,27 +106,29 @@ button:hover,
 .reminders-list .left-container {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 70%;
 }
 
 .reminders-list .right-container {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 15%;
   margin-top: 65px;
 }
 
 .reminders-list .left-container .controls {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .reminders-list .left-container .controls .reminders-search {
   width: 70%;
   outline: none;
-  padding: 10px;
+  padding: 0 10px;
   border-radius: 8px;
   border: none;
+  height: 36px;
 }
 
 .reminders-list .left-container .controls .reminders-filter {
