@@ -34,4 +34,17 @@ let deleteSelectedReminder = (id: string) => {
     fs.writeFileSync(newPath, data);
 }
 
-export {reminderToEdit, remindersList, selectReminderToEdit, markAsDoneUndone, deleteSelectedReminder};
+
+let editSelectedReminder = (reminder: any) => {
+    remindersList = [...remindersList].map((r: any) => {
+        if (r.id === reminder.id) { return reminder;}
+        return r;
+    });
+
+    const data = JSON.stringify(remindersList);
+    const newPath = path.join(__dirname, '../app/constants/reminders.json');
+    fs.writeFileSync(newPath, data);
+}
+
+
+export {reminderToEdit, remindersList, selectReminderToEdit, markAsDoneUndone, deleteSelectedReminder, editSelectedReminder};

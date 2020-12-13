@@ -3,6 +3,7 @@ import React from 'react';
 // import styles from './DocumentsList.css';
 // import routes from '../../constants/routes.json';
 import { useHistory } from 'react-router-dom';
+import { reminderToEdit } from '../../constants/global';
 
 const { remote } = require('electron');
 
@@ -33,7 +34,7 @@ export default function DocumentsList() {
 
   return (
     <div className="documents-list">
-      <h3>Attachments to &apos;Process Invoice&apos;</h3>
+      <h3>Attachments to &apos;{(reminderToEdit as any).title}&apos;</h3>
 
       <div className="documents">
         <div className="document">
